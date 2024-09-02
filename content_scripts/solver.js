@@ -10,6 +10,10 @@ function solve() {
     Array.from(tileContainer.children).some((element) => element.className.includes('unblocked'))
   );
 
+  if (unblockedTileContainers.length <= 0) {
+    return;
+  }
+
   const pairs = [];
 
   unblockedTileContainers.forEach((tileContainer) => {
@@ -27,6 +31,12 @@ function solve() {
   });
 
   const filteredPairs = pairs.filter((pair) => pair.elements.length > 1);
+  if (filteredPairs.length === 0) {
+    document.querySelector('.solitr-shuffle-button').click();
+    setTimeout(() => solve(), 300);
+    return;
+  }
+
   let max = 0;
   let bestPair;
 
@@ -57,8 +67,6 @@ function solve() {
   bestItem.click();
   setTimeout(() => {
     secondBestItem.click();
-    if (filteredPairs.length > 0) {
-      solve();
-    }
+    solve();
   }, 100);
 }
