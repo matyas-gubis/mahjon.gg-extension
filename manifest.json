@@ -13,22 +13,47 @@
     },
     "default_popup": "./popup/popup.html"
   },
-  "permissions": ["scripting", "activeTab"],
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
   "content_scripts": [
     {
-      "js": ["content_scripts/highlight.js"],
-      "matches": ["*://mahjon.gg/*"]
+      "js": [
+        "content_scripts/highlight.js"
+      ],
+      "matches": [
+        "*://mahjon.gg/*"
+      ]
     },
     {
-      "js": ["content_scripts/hider.js"],
-      "matches": ["*://mahjon.gg/*"]
+      "js": [
+        "content_scripts/hider.js"
+      ],
+      "matches": [
+        "*://mahjon.gg/*"
+      ]
     },
     {
-      "js": ["content_scripts/colorize.js"],
-      "matches": ["*://mahjon.gg/*"]
+      "js": [
+        "content_scripts/colorize.js"
+      ],
+      "matches": [
+        "*://mahjon.gg/*"
+      ]
+    },
+    {
+      "js": [
+        "content_scripts/solver.js"
+      ],
+      "matches": [
+        "*://mahjon.gg/*"
+      ]
     }
   ],
   "externally_connectable": {
-    "matches": ["*://*.mahjon.gg/*"]
+    "matches": [
+      "*://*.mahjon.gg/*"
+    ]
   }
 }
