@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Mahjon.gg helper",
+  "version": "1.0.0",
+  "description": "A helper for Mahjon.gg",
+  "icons": {
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_icon": {
+      "48": "images/icon-48.png"
+    },
+    "default_popup": "./popup/popup.html"
+  },
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "js": ["content_scripts/highlight.js"],
+      "matches": ["*://mahjon.gg/*"]
+    },
+    {
+      "js": ["content_scripts/hider.js"],
+      "matches": ["*://mahjon.gg/*"]
+    },
+    {
+      "js": ["content_scripts/colorize.js"],
+      "matches": ["*://mahjon.gg/*"]
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["*://*.mahjon.gg/*"]
+  }
+}
